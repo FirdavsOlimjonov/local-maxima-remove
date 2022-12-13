@@ -7,7 +7,7 @@ import java.util.List;
 public class LocalMaximaRemove {
 
     public static void main(String[] args) {
-        int[] array = new int[]{18, 1, 3, 6, 7, -5};
+        int[] array = new int[]{-3, 2, 4, 3, 5, 12, 8};
 
         System.out.println(Arrays.toString(removeLocalMaxima(array)));
     }
@@ -18,7 +18,7 @@ public class LocalMaximaRemove {
         for (int i = 0; i < array.length; i++) {
             if (i == 0 && (array[i + 1] < array[i])) list.add(array[i]);
             if (i == array.length - 1 && array[i - 1] < array[i]) list.add(array[i]);
-            if (i > 0 && array[i + 1] < array[i] && array[i - 1] < array[i]) list.add(array[i]);
+            else if (i > 0 && array[i + 1] < array[i] && array[i - 1] < array[i]) list.add(array[i]);
         }
 
         if (list.size() == array.length || list.size() == 0)
