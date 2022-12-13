@@ -16,9 +16,11 @@ public class LocalMaximaRemove {
         List<Integer> list = new LinkedList<>();
 
         for (int i = 0; i < array.length; i++) {
-            if (i == 0 && (array[i + 1] < array[i])) list.add(array[i]);
-            if (i == array.length - 1 && array[i - 1] < array[i]) list.add(array[i]);
-            else if (i > 0 && array[i + 1] < array[i] && array[i - 1] < array[i]) list.add(array[i]);
+            if (i == 0 && (array[i + 1] < array[i])) continue;
+            if (i == array.length - 1 && array[i - 1] < array[i]) continue;
+            else if (i > 0 && i < array.length - 1 && array[i + 1] < array[i] && array[i - 1] < array[i])
+                continue;
+            list.add(array[i]);
         }
 
         if (list.size() == array.length || list.size() == 0)
